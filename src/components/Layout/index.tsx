@@ -18,6 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Images from '@/assets/Images';
 import { primaryColor } from '@/constants';
 import SiteNav from '@/components/Layout/components/SiteNav';
+import ToasterWrapper from '@/components/basic/ToasterWrapper';
 import Copyright from '@/components/Layout/components/Copyright';
 import { AppBar, Drawer } from '@/components/Layout/styledComponents';
 import MainListItems from '@/components/Layout/components/MainListItems';
@@ -127,6 +128,7 @@ const Layout = () => {
           >
             <Outlet />
             <Copyright sx={{ pt: 4 }} />
+            <ToasterWrapper />
           </Container>
         </Box>
       </Box>

@@ -11,10 +11,11 @@ import CommonDifficulty from '@/pages/Common/subPages/Difficulty';
 import LogicalDifficulty from '@/pages/Logical/subPages/Difficulty';
 import FavoritesDifficulty from '@/pages/Favorites/subPages/Difficulty';
 
-// Task route
+// Task components
 import Task from '@/pages/Task';
-import CreateTask from '@/pages/Task/CreateTask';
-import NotSelectedTask from '@/pages/Task/NotSelectedTask';
+import EditTask from '@/pages/Task/subPages/EditTask';
+import CreateTask from '@/pages/Task/subPages/CreateTask';
+import NotSelectedTask from '@/pages/Task/subPages/NotSelectedTask';
 
 import { Difficulties, RouteItems } from '@/types';
 
@@ -37,7 +38,7 @@ export const routeItems: RouteItems = [
         path: ':slug',
         name: '',
         element: <CommonDifficulty />,
-        difficulties: [Difficulties.easy],
+        difficulties: [Difficulties.easy, Difficulties.medium, Difficulties.hard],
       },
     ],
   },
@@ -51,7 +52,7 @@ export const routeItems: RouteItems = [
         path: ':slug',
         name: '',
         element: <LogicalDifficulty />,
-        difficulties: [Difficulties.easy, Difficulties.medium],
+        difficulties: [Difficulties.easy, Difficulties.medium, Difficulties.hard],
       },
     ],
   },
@@ -71,9 +72,10 @@ export const routeItems: RouteItems = [
   },
 ];
 
+// Task routes
 export const taskRouteItems: RouteItems = [
   {
-    path: '/task',
+    path: '/tasks',
     name: 'Task',
     index: true,
     element: <NotSelectedTask />,
@@ -87,6 +89,11 @@ export const taskRouteItems: RouteItems = [
         path: 'create',
         name: '',
         element: <CreateTask />,
+      },
+      {
+        path: ':id/edit',
+        name: '',
+        element: <EditTask />,
       },
     ],
   },

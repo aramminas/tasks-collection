@@ -47,7 +47,7 @@ const Canvas = forwardRef<HTMLDivElement, CanvasProps>((_, ref) => {
         x: Math.floor(Math.random() * width),
         y: Math.floor(Math.random() * height),
         size: Math.random() * 3 + 5,
-        color: arrayColors[Math.floor(Math.random() * 5)],
+        color: arrayColors[Math.floor(Math.random() * 6)],
       });
     }
 

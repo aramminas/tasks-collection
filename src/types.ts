@@ -31,3 +31,21 @@ export type DotsType = {
   size: number;
   color: string;
 };
+
+export enum TaskTypes {
+  Logical = 'logical',
+  Common = 'common',
+}
+
+export type TaskType = {
+  id: string;
+  question: string;
+  answer: string;
+  code: string;
+  answerCode: string;
+  answerOptions: string;
+  favorite: boolean;
+  type: TaskTypes;
+  complexity: Difficulties;
+  createdAt: Date;
+};

@@ -1,8 +1,10 @@
 export const appName = 'Tasks Collection';
 export const drawerWidth: number = 240;
 export const dateFormat: string = 'DD/MM/YYYY';
+export const tableRowHeight: number = 75;
 export const dateTimeFormat: string = 'HH:mm:ss DD/MM/YYYY';
 export const primaryColor = '#006579';
+export const greenGrey = '#607D8B';
 
 export const textColors = {
   'text.secondary': '#00000099',
@@ -14,4 +16,11 @@ export const textColors = {
   'error.main': '#d70000',
 };
 
-export const arrayColors = ['#eeeeeed0', '#545454d0', '#596d91d0', '#bb5a68d0', '#696541d0'];
+export const arrayColors = [
+  '#eeeeeed0',
+  '#545454d0',
+  '#596d91d0',
+  '#bb5a68d0',
+  '#696541d0',
+  '#00e5ffc0',
+];

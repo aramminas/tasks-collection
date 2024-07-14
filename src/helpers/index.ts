@@ -1,6 +1,7 @@
 import { textColors } from '@/constants';
 import { routeItems } from '@/components/Layout/routeMap';
-import { Difficulties, DifficultyLevels, RouteSubItemType } from '@/types';
+
+import { Difficulties, DifficultyLevels, RouteSubItemType, TaskTypes } from '@/types';
 
 export const combineDifficulties = (subRoutes: RouteSubItemType[]) => {
   const difficulties: DifficultyLevels[] = [];
@@ -38,5 +39,31 @@ export const getSupTitleColor = (type: Difficulties) => {
       return textColors['secondary.main'];
     default:
       return textColors['text.primary'];
+  }
+};
+
+export const getTypeColor = (type?: TaskTypes) => {
+  switch (type) {
+    case TaskTypes.Common:
+      return 'default';
+    case TaskTypes.Logical:
+      return 'primary';
+    default:
+      return 'default';
+  }
+};
+
+export const getComplexityColor = (complexity?: Difficulties) => {
+  switch (complexity) {
+    case Difficulties.easy:
+      return 'default';
+    case Difficulties.medium:
+      return 'warning';
+    case Difficulties.hard:
+      return 'error';
+    case Difficulties.extraHard:
+      return 'secondary';
+    default:
+      return 'default';
   }
 };

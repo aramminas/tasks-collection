@@ -1,12 +1,12 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import { appName } from '@/constants';
-
 import '@/pages/Home/styles.css';
-
+import { appName } from '@/constants';
 import Canvas from '@/components/basic/Canvas';
 
 function Home() {
@@ -22,7 +22,7 @@ function Home() {
           Here are collected different
         </Typography>
         <Typography variant="h3" className="main-title to-right">
-          tasks on different technologies
+          tasks for different technologies
         </Typography>
         <Typography variant="h4" className="main-title to-left">
           and difficulties
@@ -32,6 +32,9 @@ function Home() {
         Choose a task and try to solve it
         <br /> in an original way
       </Typography>
+      <Link to="/common" style={{ textDecoration: 'none' }}>
+        <Button>Go To Tasks</Button>
+      </Link>
       <Canvas ref={bannerRef} />
     </Box>
   );
