@@ -18,7 +18,7 @@ function Task() {
   return (
     <PageWrapper title="Task">
       <AlertLoadingWrapper loading={isPending} message={error ? error.message || '' : ''} />
-      <TaskView task={data || {}} />
+      {!!data && <TaskView task={data} />}
     </PageWrapper>
   );
 }

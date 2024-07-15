@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "typeRoots": ["./node_modules/vite", "@types", "node_modules/@types"],
-    "types": ["./src/vite-env.d.ts", "node"],
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -28,5 +28,6 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
