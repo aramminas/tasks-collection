@@ -49,3 +49,8 @@ export type TaskType = {
   complexity: Difficulties;
   createdAt: Date;
 };
+
+export type ErrorResponse = {
+  error: boolean;
+  message: string;
+};

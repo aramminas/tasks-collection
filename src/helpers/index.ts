@@ -1,7 +1,7 @@
 import { textColors } from '@/constants';
 import { routeItems } from '@/components/Layout/routeMap';
 
-import { Difficulties, DifficultyLevels, RouteSubItemType, TaskTypes } from '@/types';
+import { Difficulties, DifficultyLevels, RouteSubItemType, TaskTypes, TaskType } from '@/types';
 
 export const combineDifficulties = (subRoutes: RouteSubItemType[]) => {
   const difficulties: DifficultyLevels[] = [];
@@ -66,4 +66,12 @@ export const getComplexityColor = (complexity?: Difficulties) => {
     default:
       return 'default';
   }
+};
+
+export const filterByComplexity = (data: TaskType[], complexity: string) => {
+  if (!data) {
+    return [];
+  }
+
+  return (data || []).filter((task) => task.complexity === complexity);
 };

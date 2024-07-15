@@ -1,4 +1,5 @@
 import { Methods } from '@/api/types';
+import { ensureError, getErrorResponse } from '@/helpers/errors';
 
 const apiUrl = process.env.API_URL;
 
@@ -15,19 +16,50 @@ export const fetcherPost = async (
     },
   };
 
-  const response = await fetch(`${apiUrl}/${path}`, options);
+  try {
+    const response = await fetch(`${apiUrl}/${path}`, options);
 
-  return await response.json();
+    if (response?.ok) {
+      return await response.json();
+    }
+
+    const errorResponse = await response.json();
+
+    throw Error(errorResponse?.message);
+  } catch (error: unknown) {
+    return ensureError(error);
+  }
 };
 
 export const fetcherGet = async (path: string, query: string = '') => {
-  const response = await fetch(`${apiUrl}/${path}${query}`, { method: Methods.GET });
-  return await response.json();
+  try {
+    const response = await fetch(`${apiUrl}/${path}${query}`, { method: Methods.GET });
+    if (response?.ok) {
+      return await response.json();
+    }
+
+    const errorResponse = await response.json();
+
+    return getErrorResponse(errorResponse?.message);
+  } catch (error) {
+    return ensureError(error);
+  }
 };
 
 export const fetcherDelete = async (path: string, id?: string | number) => {
-  const response = await fetch(`${apiUrl}/${path}/${id || '0'}`, { method: Methods.DELETE });
-  return await response.json();
+  try {
+    const response = await fetch(`${apiUrl}/${path}/${id || '0'}`, { method: Methods.DELETE });
+
+    if (response?.ok) {
+      return await response.json();
+    }
+
+    const errorResponse = await response.json();
+
+    throw Error(errorResponse?.message);
+  } catch (error) {
+    return ensureError(error);
+  }
 };
 
 export const fetcherPut = async (path: string, data: { id?: string } = {}) => {
@@ -39,6 +71,18 @@ export const fetcherPut = async (path: string, data: { id?: string } = {}) => {
       'Content-Type': 'application/json',
     },
   };
-  const response = await fetch(`${apiUrl}/${path}/${data?.id || '0'}`, options);
-  return await response.json();
+
+  try {
+    const response = await fetch(`${apiUrl}/${path}/${data?.id || '0'}`, options);
+
+    if (response?.ok) {
+      return await response.json();
+    }
+
+    const errorResponse = await response.json();
+
+    throw Error(errorResponse?.message);
+  } catch (error) {
+    return ensureError(error);
+  }
 };

@@ -45,6 +45,7 @@ function AdminForm({ setAdmin }: AdminFormProps) {
           autoFocus
           label="Admin key"
           type="password"
+          autoComplete="false"
           error={!!errors?.adminSecurityKey?.message}
           helperText={
             <>
