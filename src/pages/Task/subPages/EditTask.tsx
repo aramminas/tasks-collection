@@ -38,7 +38,16 @@ function EditTask() {
 
   const { isPending: isEditLoading, mutate: editMutate } = useMutation({
     mutationFn: updateTasks,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if ('error' in data && data?.error) {
+        const errorMessage =
+          data?.message && typeof data.message === 'string'
+            ? data.message
+            : 'Something went wrong...';
+        toast.error(errorMessage);
+        return;
+      }
+
       toast.success('task suceessfuly updated!');
     },
     onError: () => {
