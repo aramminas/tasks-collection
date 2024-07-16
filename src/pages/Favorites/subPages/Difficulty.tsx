@@ -22,7 +22,7 @@ function Difficulty() {
   return (
     <PageWrapper title="Favorites" supTitle={slug}>
       <AlertLoadingWrapper loading={isPending} message={errorMessage} />
-      {data && 'error' in data && !data?.error && Array.isArray(data) ? (
+      {data && !('error' in data && data.error) && Array.isArray(data) ? (
         <TasksList rows={filterByComplexity(data, slug || '')} bgColor={primaryColor} />
       ) : null}
     </PageWrapper>

@@ -18,7 +18,7 @@ function Logical() {
   return (
     <PageWrapper title="Logical">
       <AlertLoadingWrapper loading={isPending} message={errorMessage} />
-      {data && 'error' in data && !data?.error && Array.isArray(data) ? (
+      {data && !('error' in data && data.error) && Array.isArray(data) ? (
         <TasksList rows={data || []} bgColor={primaryColor} />
       ) : null}
     </PageWrapper>
