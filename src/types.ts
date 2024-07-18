@@ -38,7 +38,7 @@ export enum TaskTypes {
 }
 
 export type TaskType = {
-  id: string;
+  _id: string;
   question: string;
   answer: string;
   code: string;
@@ -47,7 +47,6 @@ export type TaskType = {
   favorite: boolean;
   type: TaskTypes;
   complexity: Difficulties;
-  createdAt: Date;
 };
 
 export type ErrorResponse = {

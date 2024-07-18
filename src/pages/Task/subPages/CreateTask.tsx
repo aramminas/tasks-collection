@@ -32,7 +32,7 @@ function CreateTask() {
     },
   });
 
-  const handleCreateTask = (task: Omit<TaskType, 'id'>) => {
+  const handleCreateTask = (task: Omit<TaskType, '_id'>) => {
     mutate(task);
   };
 

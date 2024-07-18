@@ -20,7 +20,7 @@ function Task() {
   return (
     <PageWrapper title="Task">
       <AlertLoadingWrapper loading={isPending} message={errorMessage} />
-      {data && 'id' in data && data.id ? <TaskView task={data} /> : null}
+      {data && '_id' in data && data._id ? <TaskView task={data} /> : null}
     </PageWrapper>
   );
 }

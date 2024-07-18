@@ -62,8 +62,11 @@ export const fetcherDelete = async (path: string, id?: string | number) => {
   }
 };
 
-export const fetcherPut = async (path: string, data: { id?: string } = {}) => {
-  const jsonData = JSON.stringify(data);
+export const fetcherPut = async (path: string, data: { _id?: string } = {}) => {
+  const { _id: id, ...rest } = data;
+
+  const jsonData = JSON.stringify(rest);
+
   const options = {
     method: Methods.PUT,
     body: jsonData,
@@ -73,7 +76,7 @@ export const fetcherPut = async (path: string, data: { id?: string } = {}) => {
   };
 
   try {
-    const response = await fetch(`${apiUrl}/${path}/${data?.id || '0'}`, options);
+    const response = await fetch(`${apiUrl}/${path}/${id || '0'}`, options);
 
     if (response?.ok) {
       return await response.json();

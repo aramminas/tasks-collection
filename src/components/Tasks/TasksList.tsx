@@ -69,10 +69,10 @@ const TasksList = ({ rows, bgColor }: TodoTable) => {
             {rows
               .slice(currentPage * rowsPerPage, currentPage * rowsPerPage + rowsPerPage)
               .map((row) => (
-                <StyledTableRow key={row.id}>
+                <StyledTableRow key={row._id}>
                   <StyledTableCell component="th" scope="row">
                     <Link
-                      to={`/tasks/${row.id}`}
+                      to={`/tasks/${row._id}`}
                       style={{ textDecoration: 'none', color: '#313131' }}
                     >
                       <EllipsisTooltip text={row.question} width={'100%'} />

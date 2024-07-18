@@ -5,7 +5,7 @@ const getTasks = (query?: string) => {
   return fetcherGet(`tasks`, query);
 };
 
-const createTasks = (data: Omit<TaskType, 'id'>) => {
+const createTasks = (data: Omit<TaskType, '_id'>) => {
   return fetcherPost(`tasks`, data);
 };
 

@@ -41,7 +41,7 @@ interface CreateEditTaskFormProps {
   deleteLoading?: boolean;
   deleteTask?: (taskId: string) => void;
   editTask?: (task: TaskType) => void;
-  createTask?: (task: Omit<TaskType, 'id'>) => void;
+  createTask?: (task: Omit<TaskType, '_id'>) => void;
 }
 
 function CreateEditTaskForm({
@@ -67,23 +67,23 @@ function CreateEditTaskForm({
     }, [task]),
   });
 
-  const onSubmitHandler = async (data: Omit<TaskType, 'id'> | TaskType) => {
+  const onSubmitHandler = async (data: Omit<TaskType, '_id'> | TaskType) => {
     // edit task
-    if (task?.id) {
-      editTask?.({ ...data, id: task?.id || '0' });
+    if (task?._id) {
+      editTask?.({ ...data, _id: task?._id || '0' });
       return;
     }
 
     // create task
-    if (!task?.id) {
-      createTask?.({ ...data, createdAt: new Date() });
+    if (!task?._id) {
+      createTask?.({ ...data });
     }
 
     reset();
   };
 
   const handleDeleteTask = () => {
-    deleteTask?.(task?.id || '0');
+    deleteTask?.(task?._id || '0');
   };
 
   const openDeleteDialog = () => {
@@ -232,13 +232,13 @@ function CreateEditTaskForm({
           <Button variant="outlined" type="button" onClick={resetForm}>
             Reset
           </Button>
-          {!!task?.id && (
+          {!!task?._id && (
             <Button variant="outlined" type="button" color="error" onClick={openDeleteDialog}>
               Delete
             </Button>
           )}
           <LoadingButton variant="contained" type="submit" loading={loading}>
-            {task?.id ? 'Edit' : 'Create'}
+            {task?._id ? 'Edit' : 'Create'}
           </LoadingButton>
         </Grid>
       </Box>

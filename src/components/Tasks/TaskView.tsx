@@ -34,7 +34,7 @@ function TaskView({ task }: TaskViewProps) {
         <Grid item xs={12} md={6}>
           <TaskTitle>
             <AnswerTitle
-              id={task.id}
+              id={task._id}
               title="Answer"
               show={showAnswer}
               handleChange={handleChange}
