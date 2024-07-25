@@ -3,6 +3,7 @@ import Zoom from '@mui/material/Zoom';
 import Tooltip from '@mui/material/Tooltip';
 
 import CodeBlock from '@/components/basic/CodeBlock';
+import NotSpecified from '@/components/basic/NotSpecified';
 
 interface EllipsisTooltipProps {
   text: string;
@@ -11,6 +12,10 @@ interface EllipsisTooltipProps {
 }
 
 function EllipsisTooltip({ text, width, isCode }: EllipsisTooltipProps) {
+  if (!text) {
+    return <NotSpecified />;
+  }
+
   return (
     <Tooltip
       arrow

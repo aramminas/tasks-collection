@@ -8,7 +8,9 @@ interface ComplexityChipProps {
 }
 
 const ComplexityChip = ({ complexity }: ComplexityChipProps) => {
-  return <Chip label={complexity} color={getComplexityColor(complexity)} />;
+  return (
+    <Chip label={complexity} color={getComplexityColor(complexity)} sx={{ fontWeight: 600 }} />
+  );
 };
 
 export default ComplexityChip;

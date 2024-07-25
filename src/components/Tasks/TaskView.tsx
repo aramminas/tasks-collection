@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 
 import { TaskType } from '@/types';
 import TaskTitle from '@/components/Tasks/TaskTitle';
+import CodeWrapper from '@/components/basic/CodeWrapper';
 import TextWrapper from '@/components/basic/TextWrapper';
 import AnswerTitle from '@/components/basic/AnswerTitle';
 import TitleDivider from '@/components/basic/TitleDivider';
@@ -48,14 +49,18 @@ function TaskView({ task }: TaskViewProps) {
           <Grid item xs={12} md={6}>
             <TaskTitle>Code</TaskTitle>
             <TitleDivider />
-            <TaskCodeBlock>{task.code}</TaskCodeBlock>
+            <CodeWrapper>
+              <TaskCodeBlock>{task.code}</TaskCodeBlock>
+            </CodeWrapper>
           </Grid>
         )}
         {!!task.answerCode && (
           <Grid item xs={12} md={6}>
             <TaskTitle>Answer code</TaskTitle>
             <TitleDivider />
-            <TaskCodeBlock isBlur={!showAnswer}>{task.answerCode}</TaskCodeBlock>
+            <CodeWrapper isBlur={!showAnswer}>
+              <TaskCodeBlock isBlur={!showAnswer}>{task.answerCode}</TaskCodeBlock>
+            </CodeWrapper>
           </Grid>
         )}
         {/* third row */}

@@ -49,7 +49,7 @@ const Layout = () => {
           <Toolbar
             sx={{
               pr: '24px',
-              backgroundColor: '#191d56',
+              backgroundColor: 'var(--main-bg--color)',
             }}
           >
             <IconButton

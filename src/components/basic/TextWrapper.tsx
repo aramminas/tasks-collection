@@ -11,6 +11,7 @@ function TextWrapper({ children, isBlur }: TextWrapperProps) {
       style={{
         textAlign: 'justify',
         color: isBlur ? 'transparent' : '#4c4c4c',
+        userSelect: isBlur ? 'none' : 'initial',
         textShadow: isBlur ? '0 0 12px rgba(0,0,0,0.5)' : 'initial',
       }}
     >

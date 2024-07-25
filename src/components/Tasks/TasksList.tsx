@@ -55,7 +55,7 @@ const TasksList = ({ rows, bgColor }: TodoTable) => {
                 Code
               </StyledTableCell>
               <StyledTableCell align="right" color={color}>
-                Answer
+                Answer options
               </StyledTableCell>
               <StyledTableCell align="right" color={color}>
                 Type
@@ -82,7 +82,7 @@ const TasksList = ({ rows, bgColor }: TodoTable) => {
                     <EllipsisTooltip text={row.code} width={'100%'} isCode={true} />
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <EllipsisTooltip text={row.answer || 'not specified'} width={'100%'} />
+                    <EllipsisTooltip text={row.answerOptions} width={'100%'} />
                   </StyledTableCell>
                   <StyledTableCell align="right">
                     <TypesChip type={row.type} />

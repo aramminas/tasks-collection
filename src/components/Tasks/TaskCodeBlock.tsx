@@ -9,11 +9,11 @@ function TaskCodeBlock({ children, isBlur }: TaskCodeBlockProps) {
   return (
     <div
       style={{
-        padding: '10px',
+        padding: '12px',
         overflow: 'auto',
         borderRadius: '6px',
-        border: '1px solid grey',
-        backgroundColor: '#320023',
+        backgroundColor: 'var(--code-bg)',
+        userSelect: isBlur ? 'none' : 'initial',
         color: isBlur ? 'transparent' : '#ffffff',
         textShadow: isBlur ? '0 0 12px rgba(0,0,0,0.5)' : 'initial',
       }}
