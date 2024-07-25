@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 import { TaskType } from '@/types';
+import InfoText from '@/components/basic/InfoText'
 import TaskTitle from '@/components/Tasks/TaskTitle';
 import CodeWrapper from '@/components/basic/CodeWrapper';
 import TextWrapper from '@/components/basic/TextWrapper';
@@ -49,6 +50,7 @@ function TaskView({ task }: TaskViewProps) {
           <Grid item xs={12} md={6}>
             <TaskTitle>Code</TaskTitle>
             <TitleDivider />
+            <InfoText type="small">Double-click on code to open it in full screen.</InfoText>
             <CodeWrapper>
               <TaskCodeBlock>{task.code}</TaskCodeBlock>
             </CodeWrapper>
@@ -58,6 +60,7 @@ function TaskView({ task }: TaskViewProps) {
           <Grid item xs={12} md={6}>
             <TaskTitle>Answer code</TaskTitle>
             <TitleDivider />
+            <InfoText type="small">Double-click on code to open it in full screen.</InfoText>
             <CodeWrapper isBlur={!showAnswer}>
               <TaskCodeBlock isBlur={!showAnswer}>{task.answerCode}</TaskCodeBlock>
             </CodeWrapper>
