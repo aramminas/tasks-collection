@@ -1,7 +1,12 @@
 import Divider from '@mui/material/Divider';
 
-function TitleDivider() {
-  return <Divider variant="middle" sx={{ mb: 2, mt: 1 }} />;
+interface TitleDividerProps {
+  mb?: number | string;
+  mt?: number | string;
+}
+
+function TitleDivider({ mb = 2, mt = 1 }: TitleDividerProps) {
+  return <Divider variant="middle" sx={{ mb, mt }} />;
 }
 
 export default TitleDivider;

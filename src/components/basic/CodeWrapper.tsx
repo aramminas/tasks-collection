@@ -6,9 +6,10 @@ import CodeFullScreenDialog from '@/components/basic/CodeFullScreenDialog';
 interface CodeWrapperProps {
   children: ReactNode;
   isBlur?: boolean;
+  code?: string;
 }
 
-const CodeWrapper = ({ children, isBlur }: CodeWrapperProps) => {
+const CodeWrapper = ({ children, isBlur, code }: CodeWrapperProps) => {
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => {
@@ -23,7 +24,7 @@ const CodeWrapper = ({ children, isBlur }: CodeWrapperProps) => {
   return (
     <>
       <div onDoubleClick={() => handleToggle()}>{children}</div>
-      <CodeFullScreenDialog open={open} onClose={handleToggle}>
+      <CodeFullScreenDialog open={open} code={code} onClose={handleToggle}>
         {children}
       </CodeFullScreenDialog>
     </>

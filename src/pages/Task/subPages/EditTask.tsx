@@ -26,7 +26,7 @@ function EditTask() {
   const { isPending: isDeleteLoading, mutate: deleteMutate } = useMutation({
     mutationFn: deleteTasks,
     onSuccess: () => {
-      toast.success('task suceessfuly deleted!');
+      toast.success('task successfully deleted!');
       setTimeout(() => {
         navigate('/common');
       }, 3000);
@@ -48,7 +48,7 @@ function EditTask() {
         return;
       }
 
-      toast.success('task suceessfuly updated!');
+      toast.success('task successfully updated!');
     },
     onError: () => {
       toast.error('Something went wrong...');

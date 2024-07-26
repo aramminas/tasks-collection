@@ -25,7 +25,7 @@ function CreateTask() {
         return;
       }
 
-      toast.success('task suceessfuly created!');
+      toast.success('task successfully created!');
     },
     onError: () => {
       toast.error('Something went wrong...');
