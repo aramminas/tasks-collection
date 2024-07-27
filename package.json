@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "server": "npx json-server server/database.json --port 3033"
+    "server": "npx json-server server/database.json --port 3033",
+    "test": "node index-test.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
